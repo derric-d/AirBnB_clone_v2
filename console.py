@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        elif arg_list[0] not in cls_ls:  # use the class given and check
+        elif arg_list[0] not in HBNBCommand.classes:  # use the class given and check
                                          # against allowed classes
             print("** class doesn't exist **")
             return
@@ -134,8 +134,8 @@ class HBNBCommand(cmd.Cmd):
             setattr(new_instance, key, eval(val))  # give new instance
                                                    # these parses params
         new_instance.save()  # save to storage using basemodel method
-        #print("{}".format(new_instance.id).strip('"'))  # output
-        print("new={}".format(new_instance))
+        # print("{}".format(new_instance.id).strip('"'))  # output
+        # print("new={}".format(new_instance))
         storage.save()
 
     def help_create(self):

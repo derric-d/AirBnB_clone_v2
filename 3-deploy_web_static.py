@@ -7,6 +7,7 @@ from fabric.api import *
 env.hosts = ["35.185.2.47", "3.94.190.44"]
 env.user = "ubuntu"
 
+
 def do_deploy(archive_path):
     """deploy tarball content to server"""
     if not os.path.exists(archive_path):
@@ -27,16 +28,18 @@ def do_deploy(archive_path):
 
     return True
 
+
 def do_pack():
     """pack script to make tarball"""
     local("mkdir -p versions")
     file = 'versions/web_static_{}.tgz'\
-            .format(datetime.strftime(datetime.now(), "%Y%m%d%I%M%S"))
+           .format(datetime.strftime(datetime.now(), "%Y%m%d%I%M%S"))
     ball = 'tar -cvzf {} web_static'.format(file)
     run = local(ball)
     if run.failed:
         return None
     return file
+
 
 def deploy():
     """runner to make package and deploy"""

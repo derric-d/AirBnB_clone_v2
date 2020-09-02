@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ez flask app"""
-from flask import Flask
+from flask import Flask, abort
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False

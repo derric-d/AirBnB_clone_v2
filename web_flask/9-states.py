@@ -19,7 +19,7 @@ def all_states_and_cities(id=None):
             states = states[key]
         else:
             states = Nobe
-    return render_template('9-states.html', states = states, id = id)
+    return render_template('9-states.html', states=states, id=id)
 
 
 @app.teardown_appcontext

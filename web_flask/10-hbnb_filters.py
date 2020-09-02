@@ -13,7 +13,7 @@ def hbnb_filters(id=None):
     """get all states and cities by id"""
     states = storage.all('State')
     am = storage.all('Amenity')
-    return render_template('10-hbnb_filters.html', states = states,  am=am)
+    return render_template('10-hbnb_filters.html', states=states,  am=am)
 
 
 @app.teardown_appcontext

@@ -32,7 +32,7 @@ class DBStorage():
     def all(self, cls=None):
         """get all db instances"""
         if cls:
-            objs = self.__session.query(eval(cls))
+            objs = self.__session.query(eval(str(cls)))
         else:
             objs = self.__session.query(State).all()
             objs += self.__session.query(City).all()
@@ -77,5 +77,7 @@ class DBStorage():
         Session = scoped_session(self.__session)
         self.__session = Session()
 
-
+    def close(self):
+        """close session method"""
+        self.__session.close()
 

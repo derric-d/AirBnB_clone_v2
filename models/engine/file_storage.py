@@ -76,3 +76,7 @@ class FileStorage:
             del self.__objects["{}.{}".format(type(obj).__name__, obj.id)]
         except KeyError:
             pass
+
+    def close(self):
+        """close session json"""
+        self.reload()

@@ -27,7 +27,8 @@ class DBStorage():
                                               getenv('HBNB_MYSQL_DB')),
                                       pool_pre_ping=True)
 
-        """drop all tables if the environment variable HBNB_ENV is equal to test"""
+        """drop all tables if the environment
+        variable HBNB_ENV is equal to test"""
 
     def all(self, cls=None):
         """get all db instances"""
@@ -70,7 +71,7 @@ class DBStorage():
         from models.amenity import Amenity
         from models.place import Place
         from models.review import Review
-        
+
         Base.metadata.create_all(self.__engine)
         self.__session = sessionmaker(bind=self.__engine,
                                       expire_on_commit=False)
@@ -80,4 +81,3 @@ class DBStorage():
     def close(self):
         """close session method"""
         self.__session.close()
-
